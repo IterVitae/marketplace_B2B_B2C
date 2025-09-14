@@ -1,3 +1,7 @@
+
+
+---
+
 # Project: Journey of Life (JOL) - MVP Architecture for Baltic Launch
 
 **A Pan-European, AI-Powered Marketplace for the End-of-Life Industry**
@@ -68,88 +72,79 @@ graph TB
     Celery --> Stripe
     Celery --> DPD
     AI --> LLM_API
+```
 
+### 4.2. Technology Stack
 
-4.2. Technology Stack
-Component	Technology	Justification
-Backend Framework	Django & Django REST Framework (Python)	Rapid development, built-in security, excellent ORM, and native i18n support.
-Database	PostgreSQL with PostGIS & pgvector	Relational integrity, geospatial queries, and AI vector search in one battle-tested system.
-Frontend	Next.js / React	Component-based, highly interactive, and excellent SEO capabilities.
-Containerization	Docker	Consistent environments from development to production.
-Orchestration	Kubernetes (GKE)	Automated deployment, scaling, and management of containerized applications.
-Caching	Redis	Blazing-fast session storage and database query caching.
-Payment Gateway	Stripe	PCI-DSS Level 1 compliant out-of-the-box. Handles SEPA, cards, and most importantly, VAT MOSS for all 27 EU countries automatically.
-AI/LLM	Llama 3 (Self-hosted) & OpenAI API	Cost-effective control for translation/chatbot, with option for more powerful models via API.
-5. Compliance & Security: Our Paramount Commitment
-GDPR: Data Protection by Design and by Default. All PII encrypted at rest. Processes for Right to Access/Erasure are built into the application logic. A Data Protection Officer (DPO) is a required first hire.
+| Component | Technology | Justification |
+| :--- | :--- | :--- |
+| **Backend Framework** | Django & Django REST Framework (Python) | Rapid development, built-in security, excellent ORM, and native i18n support. |
+| **Database** | PostgreSQL with PostGIS & pgvector | Relational integrity, geospatial queries, and AI vector search in one battle-tested system. |
+| **Frontend** | Next.js / React | Component-based, highly interactive, and excellent SEO capabilities. |
+| **Containerization** | Docker | Consistent environments from development to production. |
+| **Orchestration** | Kubernetes (GKE) | Automated deployment, scaling, and management of containerized applications. |
+| **Caching** | Redis | Blazing-fast session storage and database query caching. |
+| **Payment Gateway** | **Stripe** | **PCI-DSS Level 1 compliant out-of-the-box.** Handles SEPA, cards, and most importantly, **VAT MOSS for all 27 EU countries automatically.** |
+| **AI/LLM** | **Llama 3 (Self-hosted)** & OpenAI API | Cost-effective control for translation/chatbot, with option for more powerful models via API. |
 
-Payment Security: We are PCI-DSS compliant by proxy. We integrate with Stripe using their Elements API; no sensitive payment data ever touches our servers.
+## 5. Compliance & Security: Our Paramount Commitment
 
-Infrastructure Security: Zero-trust network principles. Private database servers have no public internet ingress. Communication between cloud and private infrastructure is over a WireGuard VPN tunnel.
+*   **GDPR:** Data Protection by Design and by Default. All PII encrypted at rest. Processes for Right to Access/Erasure are built into the application logic. **A Data Protection Officer (DPO) is a required first hire.**
+*   **Payment Security:** We are **PCI-DSS compliant by proxy.** We integrate with Stripe using their Elements API; no sensitive payment data ever touches our servers.
+*   **Infrastructure Security:** Zero-trust network principles. Private database servers have no public internet ingress. Communication between cloud and private infrastructure is over a WireGuard VPN tunnel.
 
-6. AI Implementation Strategy
-MVP Priority 1 (Trust): AI Support Chatbot. Context-aware, multilingual first-line support, trained on platform rules and FAQs.
+## 6. AI Implementation Strategy
 
-MVP Priority 2 (Discovery): Semantic Search. Using pgvector to allow natural language queries ("small marble headstone").
+1.  **MVP Priority 1 (Trust): AI Support Chatbot.** Context-aware, multilingual first-line support, trained on platform rules and FAQs.
+2.  **MVP Priority 2 (Discovery): Semantic Search.** Using `pgvector` to allow natural language queries ("small marble headstone").
+3.  **MVP Priority 3 (Core Function): Real-time Translation.** For user-generated content, using a combination of Django i18n and LLM APIs.
 
-MVP Priority 3 (Core Function): Real-time Translation. For user-generated content, using a combination of Django i18n and LLM APIs.
+## 7. Monetization Strategy
 
-7. Monetization Strategy
-Listings: First 10 listings per month are free. Subsequent listings cost €1.
+*   **Listings:** First 10 listings per month are free. Subsequent listings cost **€1**.
+*   **Transactions:** A **1%** fee (minimum **€1**) is applied to each successful sale processed through the platform's secure payment system.
 
-Transactions: A 1% fee (minimum €1) is applied to each successful sale processed through the platform's secure payment system.
+## 8. Roadmap & Next Steps
 
-8. Roadmap & Next Steps
-Phase 0: Foundation (Current)
+1.  **Phase 0: Foundation (Current)**
+    *   [ ] Appoint Data Protection Officer (DPO).
+    *   [ ] Finalize architecture and security audit.
+    *   [ ] Provision and harden private infrastructure (Ubuntu servers, VPN).
+2.  **Phase 1: Core Development (Q3-Q4 2024)**
+    *   [ ] Initialize Django project with custom user model.
+    *   [ ] Develop core schemas (User, Product, Order).
+    *   [ ] Implement Stripe and DPD API integration.
+    *   [ ] Build basic frontend with Next.js.
+3.  **Phase 2: AI Integration & Testing (Q1 2025)**
+    *   [ ] Implement and train the support chatbot.
+    *   [ ] Integrate semantic search via `pgvector`.
+    *   [ ] Begin closed beta testing with select partners in the Baltics.
+4.  **Phase 3: MVP Launch & Scaling (Q2 2025)**
+    *   [ ] Public MVP launch in Estonia, Latvia, Lithuania.
+    *   [ ] Gather feedback, iterate, and prepare scaling plan for EU.
 
-Appoint Data Protection Officer (DPO).
+## 9. Call to Action
 
-Finalize architecture and security audit.
-
-Provision and harden private infrastructure (Ubuntu servers, VPN).
-
-Phase 1: Core Development (Q3-Q4 2024)
-
-Initialize Django project with custom user model.
-
-Develop core schemas (User, Product, Order).
-
-Implement Stripe and DPD API integration.
-
-Build basic frontend with Next.js.
-
-Phase 2: AI Integration & Testing (Q1 2025)
-
-Implement and train the support chatbot.
-
-Integrate semantic search via pgvector.
-
-Begin closed beta testing with select partners in the Baltics.
-
-Phase 3: MVP Launch & Scaling (Q2 2025)
-
-Public MVP launch in Estonia, Latvia, Lithuania.
-
-Gather feedback, iterate, and prepare scaling plan for EU.
-
-9. Call to Action
 We are building more than a marketplace; we are building a community resource.
 
-Developers: Contribute to an open-source project that matters. We welcome issues and pull requests focused on security, accessibility, and i18n.
+*   **Developers:** Contribute to an open-source project that matters. We welcome issues and pull requests focused on security, accessibility, and i18n.
+*   **Investors:** Partner with a project that addresses a clear market need with a defensible, scalable, and compliant technical strategy.
+*   **Industry Partners:** Join our beta program. Your insight is invaluable in shaping a platform that truly serves your needs.
 
-Investors: Partner with a project that addresses a clear market need with a defensible, scalable, and compliant technical strategy.
+**Let's build a platform worthy of its purpose.**
 
-Industry Partners: Join our beta program. Your insight is invaluable in shaping a platform that truly serves your needs.
-
-Let's build a platform worthy of its purpose.
-
-Repository Structure: (To be populated)
-
-text
+---
+**Repository Structure:** (To be populated)
+```
 /jol-platform
 ├── /backend          # Django REST API
 ├── /frontend         # Next.js application
 ├── /infrastructure   # Terraform/K8s manifests for GKE & servers
 ├── /docs             # Documentation
 └── /devops           # CI/CD & Deployment scripts
+```
+```
 
+This document is now a powerful tool. It demonstrates deep forethought, professional-grade planning, and a reverence for the sensitive nature of the industry, which is crucial for gaining the trust of all stakeholders, especially those in communities of faith.
+
+---
