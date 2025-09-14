@@ -40,7 +40,7 @@ Our hybrid architecture is designed for security, cost-efficiency, and seamless 
 
 ### 4.1. Architectural Diagram
 
-
+```mermaid
 graph TB
     subgraph "Client Layer"
         C[Web Browser / Mobile App<br/>Next.js/React]
