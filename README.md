@@ -52,7 +52,6 @@ Our initial focus is on a secure and compliant launch in the Baltic states, vali
 
 ## 🗺️ High-Level Architecture
 
-```mermaid
 graph TD
     subgraph "Client Layer"
         A[Web Browser - Next.js/React App]
