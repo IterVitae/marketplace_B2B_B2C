@@ -1,4 +1,6 @@
 
+---
+
 ### **Optimized & Actionable Project Prompt: "Journey of Life" (JOL)**
 
 **To:** Development Team, Project Managers, Stakeholders
